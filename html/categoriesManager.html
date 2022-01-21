@@ -1,0 +1,47 @@
+{{define "categoriesManager"}}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faux Rhum - CategoriesManager</title>
+    <link rel="shortcut icon" href="../assets/images/logoforum.png" />
+    <link rel="stylesheet" href="../assets/css/categories.css" />
+  </head>
+
+  <body>
+    {{template "header" .}}
+    <section>
+      <div class="page">
+        {{if eq .role "admin"}}
+        <div class="ajouter">
+          <h2>Ajouter une nouvelle categorie</h2>
+          <form action="" method="POST">
+            <input class="button" type="text" name="newCategorie" />
+            <input type="color" name="color-categorie" value="#ffffff"/>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        <!-- liste des categories -->
+        <div class="gerer">
+          {{range .categories}}
+          
+          
+          <div class="cat-container">
+            <span style="background-color: {{.Color}}" class="txt-cat">{{.Nom}}</span>
+            <form action="" method="post">
+              <button>
+                <input type="hidden" name="del-cat" value="{{.Id}}">
+                <img src="../assets/images/trash.png" alt="delete" class="img-del" />
+              </button>
+            </form>
+          </div>
+          {{end}}
+        </div>
+        {{end}}
+      </div>
+    </section>
+    {{template "footer"}}
+  </body>
+</html>
+{{end}}

@@ -1,0 +1,230 @@
+body,
+* {
+  margin: 0;
+  padding: 0;
+  color: black;
+  text-decoration: none;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+.full-page {
+  width: 100vw;
+  display: flex;
+}
+.page {
+  min-height: 1000px;
+  width: 100%;
+  background-color: #eee;
+  padding-top: 90px;
+  padding-bottom: 60px;
+  font-size: 20px;
+  border-style: solid;
+  border-width: 4px;
+  border-image: linear-gradient(to bottom, #DFA003, brown, yellow, brown, #DFA003) 1 100%;
+}
+.filter{
+  width: 30%;
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  margin-top: 150px;
+}
+.display-title{
+  font-size: 25px;
+  font-family: "Modusa";
+  text-decoration: underline;
+}
+.display-post {
+  width: 30%;
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  margin-top: 150px;
+}
+.display-post-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+#newest, #latest {
+  width: 100%;
+  cursor: pointer;
+  font-family: 'Merriweather', serif;
+  font-size: 22px;
+}
+#newest:hover, #latest:hover {
+  font-size: 24px;
+  color: blue;
+  text-decoration: underline;
+}
+.filter form {
+  width: 155px;
+  margin-top: 5px;
+}
+.filter-title {
+  font-size: 25px;
+  font-family: "Modusa";
+  text-decoration: underline;
+  text-align: center;
+}
+.cat {
+  height: 50px;
+  width: 155px;
+  border: solid 1px black;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 20px;
+  text-transform: capitalize;
+  margin-top: 5px;
+  font-family: "Modusa";
+  cursor: pointer;
+}
+.cat:hover{
+  filter: brightness(250%);
+}
+.log {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 140px;
+}
+.log p {
+  font-size: 24px;
+  font-family: 'Merriweather', serif;
+
+}
+.log a {
+  text-decoration: underline;
+  color: blue;
+}
+.log a:hover {
+  text-decoration: underline;
+  color: darkblue;
+  cursor: pointer;
+  font-size: 26px;
+}
+.all {
+  height: 50px;
+  width: 155px;
+  border: solid 1px black;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 20px;
+  text-transform: capitalize;
+  background-color: black;
+  margin-top: 5px;
+  font-family: "Modusa";
+  cursor: pointer;
+}
+.all:hover {
+  filter: brightness(250%);
+  font-size: 22px;
+}
+.all p {
+  color: white;
+}
+#time-posted {
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: 'Merriweather', serif;
+  font-size: 18px;
+
+}
+.change-order-posts {
+  margin-bottom: 50px;
+}
+.change-order-posts div {
+  cursor: pointer;
+  width: 100%;
+  margin: 10px 0px 10px 0px;
+}
+.moyen, .grand, .compact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.moyen div, .grand div, .compact div{
+  cursor: pointer;
+  font-family: 'Merriweather', serif;
+  font-size: 22px;
+  
+}
+.moyen div:hover, .grand div:hover, .compact div:hover{
+  font-size: 24px;
+  color: blue;
+  text-decoration: underline;
+  
+}
+.moyen img, .compact img {
+  height: 28px;
+  margin-left: 5px;
+}
+.grand img {
+  height: 36px;
+  margin-left: 8px;
+}
+
+.my-post-container a{
+  cursor: pointer;
+  font-family: 'Merriweather', serif;
+  font-size: 22px;
+}
+.my-post-container a:hover{
+  font-size: 24px;
+  color: blue;
+  text-decoration: underline;
+
+}
+.pagepagepage{
+  margin-top: 100px;
+  font-size: 18px;
+  text-decoration: underline;
+  display: flex;
+  justify-content: center;
+}
+.pagepagepage:hover{
+  font-size: 20px;
+  color: blue;
+  cursor: pointer;
+}
+#post-text{
+  font-family: "Modusa";
+  font-size: 50px;
+  text-decoration: underline;
+}
+
+/* 
++----------------------------------------------------------------------+
+| Scroll Bar
++----------------------------------------------------------------------+
+*/
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #DFA003;
+}
+
+::-webkit-scrollbar-button {
+  height: 8px;
+  background-color: black;
+}

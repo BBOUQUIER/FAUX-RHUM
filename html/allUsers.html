@@ -1,0 +1,88 @@
+{{define "allUsers"}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../assets/css/allUsers.css" />
+  <link rel="shortcut icon" href="../assets/images/logoforum.png" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+  <title>Faux Rhum - All Users</title>
+</head>
+
+<body>
+  <section>
+    {{template "header" .}}
+    <div  id="top" class="page">
+      <form style="overflow: hidden;" action="/user" method="get">
+        <div class="search">
+          <label for="user"><img src="https://discord.com/assets/31abf4145cf7c27ea0e1a2e4328283fd.svg" alt="bas"><strong>S</strong>earch an <strong>U</strong>ser <img src="https://discord.com/assets/31abf4145cf7c27ea0e1a2e4328283fd.svg" alt="bas"></label>
+          <div>
+            <input type="text" name="user" id="user">
+            <button type="submit" class="submitbtn">Submit</button>
+          </div>
+        </div>
+      </form>
+      <div class="users-container">
+        <div class="all-admin">
+          <h3><img src="https://discord.com/assets/7d7c9561cc5ab5259ff8023b8ef86c99.svg" alt="admin"> Admins</h3>
+          <div class="container">
+            {{$length := len .alladmin}} 
+            {{if gt $length 0}} 
+            {{template "aUser" .alladmin}}
+            {{else}}
+            <p>None admin registered</p>
+            {{end}}
+          </div>
+        </div>
+        <div class="all-moderator">
+          <h3><img src="https://discord.com/assets/bd766f88fab518680708df9935b50e85.svg" alt="modo"> Moderators</h3>
+          <div class="container">
+            {{$length := len .allmoderator}} 
+            {{if gt $length 0}} 
+            {{template "aUser" .allmoderator}}
+            {{else}}
+            <p>None moderator registered</p>
+            {{end}}
+          </div>
+        </div>
+        <div class="all-users">
+          <h3><img src="https://discord.com/assets/f1719ecb228ce3c17b203ca4c15115c0.svg" alt="user"> Users</h3>
+          <div class="container">
+          {{$length := len .alluser}} 
+          {{if gt $length 0}} 
+          {{template "aUser" .alluser}}
+          {{else}}
+          <p>None User registered</p>
+          {{end}}
+        </div>
+      </div>
+      </div>
+      <a class="top" href="#top">Top of the Page</a>
+    </div>
+    {{template "footer"}}
+  </section>
+</body>
+
+</html>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+<script>
+  document.getElementById("all-users").classList.add("active");
+</script>
+{{end}}
+
+<!-- template for each user -->
+{{define "aUser"}}
+{{range .}}
+<div class="user-card">
+    <a href="/user?user={{index . 0}}"> {{index . 0}} : </a>
+    <p>{{index . 1}}</p>
+</div>
+{{end}}
+{{end}}

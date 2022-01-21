@@ -1,0 +1,63 @@
+{{define "newPost"}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../assets/css/newPost.css" />
+  <link rel="shortcut icon" href="../assets/images/logoforum.png" />
+  <title>Faux Rhum - New Post</title>
+</head>
+
+<body>
+  <section>
+    {{template "header" .}}
+    <div class="page">
+      <form enctype="multipart/form-data" action="?" method="POST" autocomplete="off">
+        <div class="title">
+          <div>
+            <label for="title">Title of the post</label>
+            <input type="text" name="title" required />
+          </div>
+        </div>
+        <div class="body">
+          <div class="body-container">
+            <label for="body">Body</label>
+            <textarea type="text" name="body" required></textarea>
+          </div>
+        </div>
+        <div class=uploading>
+          <p>Image Upload</p>
+          <label for="file">Select a file</label>
+          <input class="input file-input" name="file" type="file" id="file" accept=".png, .jpg, .jpeg" multiple>
+        </div>
+        <div class="all-check">
+          <div>
+            {{range $key, $value := .categorie}}
+
+            <div class="checkbox">
+              <div>
+                <input class="check" type="checkbox" name="categorie{{$key}}" value="{{index $value 0}}" onclick='deRequire("check")'
+                  required />
+                <p>{{index $value 0}}</p>
+              </div>
+            </div>
+            {{end}}
+          </div>
+        </div>
+        <div class="button">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+
+    {{template "footer"}}
+  </section>
+
+</body>
+
+</html>
+<script src="../assets/js/newPost.js"></script>
+{{end}}

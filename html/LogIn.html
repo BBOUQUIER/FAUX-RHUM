@@ -1,0 +1,73 @@
+{{define "LogIn"}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faux Rhum - Log in</title>
+    <link rel="stylesheet" href="../assets/css/logIn.css" />
+    <link rel="shortcut icon" href="../assets/images/logoforum.png" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <section>
+        {{template "header" .}}
+        <div class="page">
+
+            <h1 data-aos="fade-down" data-aos-duration="1000"><strong>L</strong>og in to <strong>F</strong>orum</h1>
+
+            <div class="formulaire"  data-aos="zoom-in" data-aos-duration="1000">
+                <form method="POST" action="?">
+                    <div class="enter-username">
+                        <label for="user-login"> Username <span>*</span> </label>
+                        <input type="text" name="user-login">
+                    </div>
+                    {{if .wrongUsername}}
+                    {{if not .wrongPassword}}
+                    <div class="wrong-username">
+                        <p>Unknown username</p>
+                        <a href="/SignUp">Create an account ?</a>
+                    </div>
+                    {{end}}
+                    {{end}}
+                    <div class="enter-password">
+                        <label for="password-login"> Password <span>*</span></label>
+                        <input type="password" name="password-login">
+                    </div>
+                    {{if .wrongPassword}}
+                    <div class="wrong-password">
+                        <p>Wrong password</p>
+                    </div>
+                    {{end}}
+                    <div class="submit">
+                        <button type="submit">Log In</button>
+                    </div>
+                    <h3 id="logWith">Log in with</h3>
+                    <div class="logWith">
+                        <div class="facebook-login">
+                            <a href="/loginFB"><img src="../assets/images/logo/fb-logo.jpg" alt="logIn_with_facebook"></a>
+                        </div>
+                        <div class="google-login">
+                            <a href="/loginGoogle"><img src="../assets/images/logo/google-logo.jpg" alt="logIn_with_google"></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="create-account"  data-aos="fade-up" data-aos-duration="1000">
+                <div>
+                    <p>New to the Forum ? <br><a href="/SignUp">Create an account !</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+
+</html>
+{{end}}
